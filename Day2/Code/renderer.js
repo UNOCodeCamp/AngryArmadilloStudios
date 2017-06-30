@@ -1,4 +1,4 @@
-renderer = new Object();
+ renderer = new Object();
 
 // Create the canvas
 renderer.canvas = document.getElementById("viewport");
