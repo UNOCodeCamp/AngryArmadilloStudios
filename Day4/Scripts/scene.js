@@ -35,15 +35,6 @@ function Scene()
             var block = new Block(x,y,w,h);
             this.blocks.push(block);
         }
-        else if (tileID == "$")
-        {
-            var x = i*32;
-            var y = j*32;
-            var w = 32;
-            var h = 32;
-            var wall = new Block(x,y,w,h);
-            this.blocks.push(wall);
-        }
         else if (tileID == "@")
         {
           player.x = i*32;

@@ -6,7 +6,7 @@ function Block(x,y,width,height)
     this.width = width;
     this.height = height;
     this.image = new Image();
-    this.image.src = "Assets/Angry Arma Block.png";
+    this.image.src = "Assets/AA Wall Block.png";
 
     this.draw = function()
     {

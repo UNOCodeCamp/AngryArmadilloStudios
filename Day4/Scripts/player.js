@@ -46,13 +46,13 @@ player.move = function(x, y)
     /*Left/Right Movement*/
 
     // player holding left
-    if (input.keysDown.has(37) && player.velX > -player.speed) 
+    if (input.keysDown.has(65) && player.velX > -player.speed) 
     { 
         player.velX--;
         player.currentPose = "left";
     }
     // player holding right
-    if (input.keysDown.has(39) && player.velX < player.speed) 
+    if (input.keysDown.has(68) && player.velX < player.speed) 
     { 
         player.velX++;
         player.currentPose = "right";
@@ -60,8 +60,10 @@ player.move = function(x, y)
     player.velX *= friction;
 
     /*Jumping*/
-    if ( (input.keysDown.has(38) || input.keysDown.has(32) ) && !player.isJumping) 
+    if ( (input.keysDown.has(83) || input.keysDown.has(87) ) && !player.isJumping) 
     { 
+         var audio = new Audio("Assets/sfx_movement_jump1.wav");
+            audio.play();
         player.isJumping = true;
         player.velY = -player.speed*2;
     }

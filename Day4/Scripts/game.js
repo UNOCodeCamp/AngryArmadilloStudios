@@ -4,10 +4,12 @@ game.score = 0;
 game.timer = 0;
 game.startTime = null;
 game.isOver = false;
-game.level = 2;
+game.level = 0;
 
 game.start = function()
 {
+    var audio = new Audio("Assets/Meatball Parade.mp3");
+    audio.play();
     var level = maps[game.level]
     scene.setScene(level);
     game.startTime = Date.now();
@@ -22,8 +24,12 @@ game.main = function()
     {
         game.update();
         renderer.draw();
-        window.requestAnimationFrame(game.main);
     }
+    else
+    {
+        hud.drawGameOver();
+    }
+    window.requestAnimationFrame(game.main);
 
 };
 
@@ -43,7 +49,7 @@ game.update = function()
         }
         else
         {
-        game.isOver = true
+            game.isOver = true
         }
     }
 
@@ -52,8 +58,11 @@ game.update = function()
         var hazard = scene.hazards[i];
         if ( hazard.isTouching(player) )
         {
+            var audio = new Audio("Assets/sfx_deathscream_robot3.wav");
+            audio.play();
             game.isOver = true;
         }
+       
     }
 };
 
